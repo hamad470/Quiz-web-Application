@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel ="stylesheet" href = "quiz.css">
+    
+</head>
+<body>
+    
+    
+    
+    <div class = "wrapper">
+    <div class = "quiz">
+        <div class= "quiz-header">
+            <div class ="quiz-user">
+                <h3>Welcome!<span class = "name2"></span></h3></div>
+            <div class = "quiz-timer">
+                <span id="time"></span>
+            </div>
+        </div>
+            <div class ="quiz-body">
+                <div id ="questions">
+               <!-- <h2>Q1: What is ful form of ram</h2>
+                <ul class = "option-group">
+                   <li class = "option">option1</li>
+                   <li class = "option">option2</li>
+                   <li class = "option">option3</li>
+                   <li class = "option">option3</li>
+
+
+                </ul>
+            -->
+                </div>
+            
+<button class =btn-next onclick = "next();">Next Question</button>
+            </div>
+        
+    </div>
+    </div>
+    <script>
+    let timeLeft = 10;
+        function convertSec(s){
+            let min =Math.floor(s/60);
+            let sec =s%60;
+            if(min<10){
+                min = `0${min}`;
+            }
+            if(sec<10){
+                sec = `0${sec}`;
+            }
+            return `${min}:${sec}`;
+        }
+        function setUp(){
+    let timer = document.querySelector("#time");
+    timer.innerHTML=convertSec(timeLeft);
+    
+    function timeIt(){
+        if(timeLeft>0){
+        timeLeft--;
+        timer.innerHTML=convertSec(timeLeft);}
+        else{
+            location.href = "end.html";
+            
+        }
+    }
+    setInterval(timeIt,1000);
+}
+setUp();
+    </script>
+    
+
+    
+    <script src = "endJs.js"></script>
+    <script src = "testingQuizJs.js"></script>
+</body>
+</html>

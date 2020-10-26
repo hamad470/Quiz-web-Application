@@ -1,0 +1,214 @@
+<!doctype html>
+<html>
+    <head>
+        <title>
+            scramble game
+        </title>
+        <link href="https://fonts.googleapis.com/css2?family=Carter+One&family=Source+Sans+Pro:wght@200&display=swap" rel="stylesheet">
+        <style>
+            *{
+                margin : 0px;
+                padding : 0px;
+                box-sizing : border-box;
+            }
+            header{
+                height : 15vh;
+                width : 100%;
+                background-color : #20bf6b;
+            }
+            h1{
+                font-family : 'carter one', cursive;
+                color : white;
+                text-align : center;
+                font-size : 1.8rem;
+                letter-spacing : 15px;
+                text-shadow : 0 1px 0 #efefef,
+                0 1px 0 #efefef,
+                0 2px 0 #efefef,
+                0 3px 0 #efefef,
+                0 4px 0 #efefef,
+                0 30px 5px rgba(0,0,0,.1);
+                
+              
+
+            }
+            section{
+                height : 85vh;
+                display : flex;
+                justify-content : center;
+                align-items : center;
+                background-color : #7bed9f;
+            }
+            .gameArea{
+                width : 400px;
+                height : 50%;
+                background-color : #2ed573;
+                display : flex;
+                flex-direction : column;
+                justify-content : center;
+                align-items : center;
+                box-shadow : 0 8px 6px -6px black;
+                font-family: 'Source Sans Pro', sans-serif;
+            }
+            h3{
+                text-align : center;
+                size : 1.5rem;
+            }
+            input{
+                color : black;
+                border-radius : 25px;
+                border : none;
+                outline : none;
+                margin : 2rem 0;
+                font-size : 1.1rem;
+                text-align : center;
+                width : 40%;
+                padding : 12px 0;
+            }
+            button{
+                margin-top : 10px;
+                outline : none;
+                cursor : pointer;
+                color : #eb4d4b;
+                border : #2f3542;
+                font-size : 1rem; 
+            }
+            button.btn{
+                background-color : white;
+                font-weight : 600;
+                padding: 1rem 2rem;
+                text-transform :uppercase;
+                transition-property : all;
+                transition-duration : 1.5s;
+                transition-timing-function : cubic-bezier(.65,-.25,.25,1.95);
+            }
+            button.btn:hover, button.btn:active,button.btn:focus {
+                letter-spacing : .125rem;
+                word-spacing : .25rem;
+                border-radius : 25px;
+
+            }
+.hidden{
+    display : none;
+}
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>
+                Guess the word game.
+            </h1>
+
+        </header>
+        <section>
+            <div class = "gameArea">
+                <h3 class = "msg"></h3>
+                <input type = "text" class = "hidden">
+                <button class = "btn">Click here to start</button>
+
+
+            </div>
+
+        </section>
+        <script>
+            const msg = document.querySelector(".msg");
+            const guess = document.querySelector("input");
+            const btn = document.querySelector(".btn");
+
+            let questions=[
+                {prompt: `what is color of Apple
+                    (a)red
+                    (b)yellow`,
+                answer :`a`
+                },
+                {
+                prompt : `what is type of 1
+                    (a)Boolean
+                    (b)number`,
+                    answer : `b`
+
+                }
+            ];
+            //console.log(questions[0].Q);
+  /*          function getValue(reel,teel)
+            for(let i=0;i<questions.length;i++){
+                let reel = questions[i].Q; 
+                return reel;
+            }
+            getValue(questions[i].Q,questions[i].answer)
+*/
+            ///////////////////////////
+     function reel(arr){
+            for(let i=0;i<arr.length;i++)
+    {
+        arr[i];
+       
+           
+        
+    }       return arr;      }
+let play =false;
+
+btn.addEventListener("click",function(){
+    
+    
+    if(!play){
+        guess.classList.toggle("hidden");
+    btn.innerHTML = "Guess";
+    //newWords = creatNewWords();
+    //ranWords = scrambleWords(newWords.split("")).join("");
+    play = true;
+  // function abc(sala){
+      // let len = sala.length;
+    let gettingValue = reel(questions);
+    msg.innerHTML = gettingValue.prompt;
+   
+    
+}
+////abc(questions);
+    
+
+         
+        
+    //}
+    else{
+
+        let write = guess.value;
+        for(let i=0;i<questions.length;i++)
+    {
+        let ds = questions[i];
+
+        //msg.innerHTML = questions[i].prompt;
+    
+        if(write==questions[i].answer){
+            play = false;
+            msg.innerHTML = "Welll Done!.you guessed correctly";
+            btn.innerHTML = "Next";
+            guess.classList.toggle("hidden");
+            guess.value = "";
+        }
+        else{
+            msg.innerHTML = `Oops!.you guessed incorrectly`;
+            guess.value = "";
+            btn.innerHTML = "Guess Again";
+       
+            
+
+        }
+        };
+       
+    }
+   // console.log(ranWords);
+   // console.log(newWords.split(""));
+})
+
+
+
+
+            
+           
+           
+
+            
+        </script>
+    </body>
+</html>
